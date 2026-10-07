@@ -7,6 +7,7 @@
 <title>Ördek Avı 🦆</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -14,14 +15,22 @@
 body {
     margin: 0;
     min-height: 100vh;
+
     background:
-        radial-gradient(circle at 50% 35%, #fffdf8 0%, #fff8ed 45%, #fdf3e5 100%);
+        radial-gradient(
+            circle at 50% 35%,
+            #fffdf8 0%,
+            #fff8ed 45%,
+            #fdf3e5 100%
+        );
+
     font-family: Georgia, "Times New Roman", serif;
     color: #3f2d21;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
     text-align: center;
 }
 
@@ -30,6 +39,9 @@ body {
     max-width: 430px;
     padding: 35px 20px;
 }
+
+
+/* ÖRDEK GÖRSELİ */
 
 .ducks {
     width: 100%;
@@ -44,16 +56,19 @@ body {
     margin: 0 auto;
 }
 
-.heart {
-    color: #df6b6b;
-    font-size: 30px;
-    margin-bottom: 5px;
-}
+
+/* BAŞLIK */
 
 h1 {
     font-size: 48px;
     font-weight: normal;
     margin: 10px 0 15px;
+}
+
+.heart {
+    color: #df6b6b;
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .subtitle {
@@ -62,16 +77,27 @@ h1 {
     margin-bottom: 28px;
 }
 
+
+/* KOD GİRİŞİ */
+
 .input-wrapper {
     width: 100%;
+
     background: rgba(255,255,255,0.75);
+
     border: 2px solid #ead4b8;
     border-radius: 40px;
+
     padding: 4px;
+
     display: flex;
     align-items: center;
+
     margin-bottom: 15px;
-    box-shadow: 0 8px 25px rgba(91, 62, 38, 0.06);
+
+    box-shadow:
+        0 8px 25px
+        rgba(91, 62, 38, 0.06);
 }
 
 .lock {
@@ -81,14 +107,25 @@ h1 {
 
 input {
     width: 100%;
+
     border: none;
     outline: none;
+
     background: transparent;
+
     padding: 17px 15px;
-    font-family: Georgia, "Times New Roman", serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 17px;
+
     color: #3f2d21;
+
     text-align: center;
+
     text-transform: uppercase;
 }
 
@@ -97,17 +134,39 @@ input::placeholder {
     text-transform: none;
 }
 
+
+/* BUTON */
+
 button {
     width: 75%;
+
     border: none;
     border-radius: 40px;
+
     padding: 17px;
-    background: linear-gradient(135deg, #e47777, #d95f66);
+
+    background:
+        linear-gradient(
+            135deg,
+            #e47777,
+            #d95f66
+        );
+
     color: white;
-    font-family: Georgia, "Times New Roman", serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 20px;
+
     cursor: pointer;
-    box-shadow: 0 9px 22px rgba(199, 84, 91, 0.22);
+
+    box-shadow:
+        0 9px 22px
+        rgba(199, 84, 91, 0.22);
+
     transition: 0.2s;
 }
 
@@ -115,20 +174,53 @@ button:active {
     transform: scale(0.97);
 }
 
+
+/* ÖRDEK MESAJI */
+
 #message {
     min-height: 25px;
-    margin-top: 20px;
+
+    margin: 25px auto 0;
+
     font-size: 17px;
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+    max-width: 380px;
 }
+
+#message.found {
+    background:
+        rgba(255,255,255,0.55);
+
+    border:
+        1px solid #ead4b8;
+
+    border-radius: 22px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(91, 62, 38, 0.06);
+}
+
+
+/* EN ALTTAKİ KÜÇÜK YAZI */
 
 .tiny {
     margin-top: 35px;
+
     font-size: 12px;
+
     opacity: 0.45;
 }
 
+
+/* TELEFON */
+
 @media (max-width: 500px) {
-  
 
     h1 {
         font-size: 42px;
@@ -137,29 +229,57 @@ button:active {
     .subtitle {
         font-size: 17px;
     }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+
+    <!-- ÖRDEKLER -->
+
     <div class="ducks">
-    <img src="ducks.png" alt="İki küçük ördek">
-</div>
+
+        <img
+            src="ducks.png"
+            alt="İki küçük ördek"
+        >
+
+    </div>
+
+
+    <!-- BAŞLIK -->
 
     <h1>Ördek Avı</h1>
 
-    <div class="heart">— ♡ —</div>
+    <div class="heart">
+        — ♡ —
+    </div>
+
 
     <p class="subtitle">
-        Küçük ördekler büyük sürprizler saklar...<br>
+
+        Küçük ördekler büyük sürprizler saklar...
+
+        <br>
+
         Bir ördek buldun mu?
+
     </p>
 
+
+    <!-- KOD GİRİŞİ -->
+
     <div class="input-wrapper">
-        <span class="lock">♡</span>
+
+        <span class="lock">
+            ♡
+        </span>
 
         <input
             id="duckCode"
@@ -168,73 +288,164 @@ button:active {
             autocomplete="off"
             maxlength="20"
         >
+
     </div>
 
+
+    <!-- BUTON -->
+
     <button onclick="openDuck()">
+
         Ördeği Aç ♡
+
     </button>
+
+
+    <!-- MESAJ BURADA ÇIKACAK -->
 
     <div id="message"></div>
 
+
+    <!-- ALT YAZI -->
+
     <div class="tiny">
+
         🦆 dikkat: ördekler beklenmedik yerlerde ortaya çıkabilir
+
     </div>
+
 
 </div>
 
+
 <script>
-async function openDuck() {
 
-    const input = document.getElementById("duckCode");
-    const message = document.getElementById("message");
-    const button = document.querySelector("button");
+/*
+=================================================
+            🦆 ÖRDEKLER BURADA 🦆
+=================================================
 
-    const code = input.value.trim().toUpperCase();
+Yeni ördek eklemek için:
+
+"KOD": `Mesaj`
+
+şeklinde ekle.
+
+Mesajın içinde istediğin kadar
+Enter kullanabilirsin.
+
+*/
+
+
+const ducks = {
+
+
+    /* ÖRDEK 1 */
+
+    "L7KQ-4M": `İlk gerçek ördeğini buldun 🦆❤️
+
+Buraya istediğin kadar uzun bir mesaj yazabilirsin.
+
+Enter'a bastığında yeni paragraf oluşur.
+
+Mesela buraya başka bir şey yazabilirsin.
+
+Seni seviyorum. ❤️`,
+
+
+    /* ÖRDEK 2 */
+
+    "P9VX-2A": `İkinci ördeği buldun!
+
+Bu ördek buraya nasıl geldi bilmiyorum.
+
+Ama belli ki sana söylemek istediği bir şey var. 🦆❤️`
+
+
+};
+
+
+/*
+=================================================
+Buradan aşağısına dokunmana gerek yok.
+=================================================
+*/
+
+
+function openDuck() {
+
+    const input =
+        document.getElementById("duckCode");
+
+    const message =
+        document.getElementById("message");
+
+    const code =
+        input.value
+        .trim()
+        .toUpperCase();
+
+
+    /* KOD YAZILMADI */
 
     if (!code) {
-        message.innerHTML = "Önce bir ördek bulman lazım 🦆";
+
+        message.textContent =
+            "Önce bir ördek bulman lazım 🦆";
+
+        message.classList.remove("found");
+
         return;
     }
 
-    button.disabled = true;
-    button.innerHTML = "Ördek araştırılıyor... 🦆";
 
-    try {
+    /* ÖRDEK BULUNDU */
 
-        const response = await fetch("/api/duck", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ code: code })
-        });
+    if (ducks[code]) {
 
-        const data = await response.json();
+        message.textContent =
+            ducks[code];
 
-        if (data.success) {
-            message.innerHTML = "♡ " + data.message;
-            input.value = "";
-        } else {
-            message.innerHTML = "Bu kod hiçbir ördeğe ait değil 👀🦆";
-        }
+        message.classList.add("found");
 
-    } catch (error) {
-        message.innerHTML = "Ördek kaçtı... Bir daha dene 🦆";
+        input.value = "";
+
     }
 
-    button.disabled = false;
-    button.innerHTML = "Ördeği Aç ♡";
+
+    /* YANLIŞ KOD */
+
+    else {
+
+        message.textContent =
+            "Bu kod hiçbir ördeğe ait değil 👀🦆";
+
+        message.classList.remove("found");
+
+    }
+
 }
+
+
+/* ENTER TUŞUYLA DA AÇ */
 
 document
     .getElementById("duckCode")
-    .addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            openDuck();
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                openDuck();
+
+            }
+
         }
-    });
+    );
 
 </script>
+
 
 </body>
 </html>
