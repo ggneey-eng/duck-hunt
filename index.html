@@ -1,12 +1,229 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ördek Avı 🦆</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ördek Avı 🦆</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 35%, #fffdf8 0%, #fff8ed 45%, #fdf3e5 100%);
+    font-family: Georgia, "Times New Roman", serif;
+    color: #3f2d21;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 430px;
+    padding: 35px 20px;
+}
+
+.ducks {
+    font-size: 78px;
+    line-height: 1;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.heart {
+    color: #df6b6b;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: normal;
+    margin: 10px 0 15px;
+}
+
+.subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.input-wrapper {
+    width: 100%;
+    background: rgba(255,255,255,0.75);
+    border: 2px solid #ead4b8;
+    border-radius: 40px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    box-shadow: 0 8px 25px rgba(91, 62, 38, 0.06);
+}
+
+.lock {
+    font-size: 20px;
+    margin-left: 18px;
+}
+
+input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 17px 15px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    color: #3f2d21;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+input::placeholder {
+    color: #ad9b89;
+    text-transform: none;
+}
+
+button {
+    width: 75%;
+    border: none;
+    border-radius: 40px;
+    padding: 17px;
+    background: linear-gradient(135deg, #e47777, #d95f66);
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 9px 22px rgba(199, 84, 91, 0.22);
+    transition: 0.2s;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+#message {
+    min-height: 25px;
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+.tiny {
+    margin-top: 35px;
+    font-size: 12px;
+    opacity: 0.45;
+}
+
+@media (max-width: 500px) {
+    .ducks {
+        font-size: 65px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+}
+</style>
 </head>
+
 <body>
-  <h1>🦆 Ördek Avı</h1>
-  <p>Bir ördek buldun mu?</p>
+
+<div class="container">
+
+    <div class="heart">♡</div>
+
+    <div class="ducks">
+        🦆 🦆
+    </div>
+
+    <h1>Ördek Avı</h1>
+
+    <div class="heart">— ♡ —</div>
+
+    <p class="subtitle">
+        Küçük ördekler büyük sürprizler saklar...<br>
+        Bir ördek buldun mu?
+    </p>
+
+    <div class="input-wrapper">
+        <span class="lock">♡</span>
+
+        <input
+            id="duckCode"
+            type="text"
+            placeholder="Kodu buraya yaz..."
+            autocomplete="off"
+            maxlength="20"
+        >
+    </div>
+
+    <button onclick="openDuck()">
+        Ördeği Aç ♡
+    </button>
+
+    <div id="message"></div>
+
+    <div class="tiny">
+        🦆 dikkat: ördekler beklenmedik yerlerde ortaya çıkabilir
+    </div>
+
+</div>
+
+<script>
+
+function openDuck() {
+
+    const code = document
+        .getElementById("duckCode")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const message = document.getElementById("message");
+
+    if (!code) {
+        message.innerHTML = "Önce bir ördek bulman lazım 🦆";
+        return;
+    }
+
+    /*
+      ŞİMDİLİK TEST KODU.
+      Daha sonra gerçek kodları sunucu tarafına taşıyacağız.
+    */
+
+    if (code === "TEST") {
+        message.innerHTML =
+            "♡ İlk ördeğini buldun. Seni seviyor olabilir. Ya da sadece burada yaşıyor olabilir. 🦆";
+    } else {
+        message.innerHTML =
+            "Hmm... Bu ördeği tanımıyorum. 👀🦆";
+    }
+}
+
+/* Enter'a basınca da çalışsın */
+
+document
+    .getElementById("duckCode")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+            openDuck();
+        }
+
+    });
+
+</script>
+
 </body>
 </html>
