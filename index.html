@@ -426,7 +426,15 @@ Sen bazen farkına varmasan da filmi bırakıp seni izliyorum, çünkü sen dün
 en güzel sahneden de güzelsin.`,
     
           "9420": `Seni ve her gün batımında seni düşünmeyi seviyorum.
-Bir gün daha bitiyor, gökyüzü çok güzel. Ama sen hep en güzelsin.`
+Bir gün daha bitiyor, gökyüzü çok güzel. Ama sen hep en güzelsin.`,
+        
+          "1731": `Seni ve ellerini tutmayı seviyorum.
+Ne zaman kendimi zorda hissetsem, ellerini tuttuğumu düşünüp güç buluyorum senden.`,
+
+          "4569": `Seni ve bana aldıklarını günlük hayatımda kullanmayı seviyorum.
+Hayatımın her yerinde senden bir parça olsun istiyorum, her şeyde biraz sen olsun.`,
+
+    
     
 
     
@@ -476,16 +484,26 @@ function openDuck() {
     }
 
 
-    /* YANLIŞ KOD */
+     /* YANLIŞ KOD */
 
-    else {
+else {
 
-        message.textContent =
-            "Hmm... Böyle bir ördek tanımıyorum🦆";
+    const wrongMessages = [
+        "🦆 Hmm... Bu ördeği tanımıyorum.",
+        "👀 İyi denemeydi, ama bu ördek bizden değil.",
+        "🦆 Ördekleri kandıramazsın aşkım.",
+        "🧡 Yanlış ördek, doğru sevgili.",             
+        "🐣 Bu ördek henüz doğmamış olabilir.",
+        "😏 Ben bile böyle bir ördek sakladığımı hatırlamıyorum."
+    ];
 
-        message.classList.remove("found");
+    const randomIndex = Math.floor(
+        Math.random() * wrongMessages.length
+    );
 
-    }
+    message.textContent = wrongMessages[randomIndex];
+
+    message.classList.remove("found");
 
 }
 
