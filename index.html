@@ -6,7 +6,24 @@
 
 <title>Ördek Avı 🦆</title>
 
+  
 <style>
+    #musicToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid #ead4b8;
+    border-radius: 50%;
+    background: #fff8ed;
+    color: #d95f66;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(91, 62, 38, 0.12);
+}
 
 * {
     box-sizing: border-box;
@@ -237,7 +254,11 @@ button:active {
 
 
 <body>
+<audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
 
+<button id="musicToggle" type="button" aria-label="Müziği durdur">
+    ♫
+</button>
 <div class="container">
 
 
@@ -404,12 +425,11 @@ Sen uyuyana kadar seni küçük küçük öpmeyi, seni kollarımda sarmayı özl
 Sen bazen farkına varmasan da filmi bırakıp seni izliyorum, çünkü sen dünyadaki 
 en güzel sahneden de güzelsin.`,
     
-          "7649": `Seni ve her gün batımında seni düşünmeyi seviyorum.
-Bir gün daha bitiyor, ve bir .`
+          "9420": `Seni ve her gün batımında seni düşünmeyi seviyorum.
+Bir gün daha bitiyor, gökyüzü çok güzel. Ama sen hep en güzelsin.`
     
 
     
-
 
 };
 
@@ -486,6 +506,51 @@ document
 
         }
     );
+  const music = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+music.volume = 0.35;
+
+let musicPausedByUser = false;
+
+async function startMusic() {
+    if (!music.paused || musicPausedByUser) return;
+
+    try {
+        await music.play();
+    } catch (error) {
+        console.log("Müzik başlatılamadı:", error);
+    }
+}
+
+function updateMusicButton() {
+    musicToggle.textContent = music.paused ? "♫" : "⏸";
+
+    musicToggle.setAttribute(
+        "aria-label",
+        music.paused ? "Müziği başlat" : "Müziği durdur"
+    );
+}
+
+document.addEventListener("pointerdown", startMusic);
+document.addEventListener("keydown", startMusic);
+
+musicToggle.addEventListener("click", async function(event) {
+    event.stopPropagation();
+
+    if (music.paused) {
+        musicPausedByUser = false;
+        await startMusic();
+    } else {
+        musicPausedByUser = true;
+        music.pause();
+    }
+
+    updateMusicButton();
+});
+
+music.addEventListener("play", updateMusicButton);
+music.addEventListener("pause", updateMusicButton);
 
 </script>
 
