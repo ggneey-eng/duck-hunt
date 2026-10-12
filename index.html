@@ -445,88 +445,61 @@ senin kadının, senin karın.`
 };
 
 
-
 function openDuck() {
 
-    const input =
-        document.getElementById("duckCode");
-
-    const message =
-        document.getElementById("message");
-
-    const code =
-        input.value
-        .trim()
-        .toUpperCase();
-
+    const input = document.getElementById("duckCode");
+    const message = document.getElementById("message");
+    const code = input.value.trim().toUpperCase();
 
     /* KOD YAZILMADI */
 
     if (!code) {
-
-        message.textContent =
-            "Önce bir ördek bulman lazım 🦆";
-
+        message.textContent = "Önce bir ördek bulman lazım 🦆";
         message.classList.remove("found");
-
         return;
     }
 
-
     /* ÖRDEK BULUNDU */
 
-    if (ducks[code]) {
-
-        message.textContent =
-            ducks[code];
-
+    if (Object.hasOwn(ducks, code)) {
+        message.textContent = ducks[code];
         message.classList.add("found");
-
         input.value = "";
-
     }
 
+    /* YANLIŞ KOD */
 
-     /* YANLIŞ KOD */
+    else {
+        const wrongMessages = [
+            "🦆 Hmm... Bu ördeği tanımıyorum.",
+            "👀 İyi denemeydi, ama bu ördek bizden değil.",
+            "🦆 Ördekleri kandıramazsın aşkım.",
+            "🧡 Yanlış ördek, doğru sevgili.",
+            "🐣 Bu ördek henüz doğmamış olabilir.",
+            "😏 Ben bile böyle bir ördek sakladığımı hatırlamıyorum."
+        ];
 
-else {
+        const randomIndex = Math.floor(
+            Math.random() * wrongMessages.length
+        );
 
-    const wrongMessages = [
-        "🦆 Hmm... Bu ördeği tanımıyorum.",
-        "👀 İyi denemeydi, ama bu ördek bizden değil.",
-        "🦆 Ördekleri kandıramazsın aşkım.",
-        "🧡 Yanlış ördek, doğru sevgili.",             
-        "🐣 Bu ördek henüz doğmamış olabilir.",
-        "😏 Ben bile böyle bir ördek sakladığımı hatırlamıyorum."
-    ];
+        message.textContent = wrongMessages[randomIndex];
+        message.classList.remove("found");
+    }
 
-    const randomIndex = Math.floor(
-        Math.random() * wrongMessages.length
-    );
-
-    message.textContent = wrongMessages[randomIndex];
-
-    message.classList.remove("found");
-
-}
+} // openDuck fonksiyonunun sonu
 
 
 /* ENTER TUŞUYLA DA AÇ */
 
-document
-    .getElementById("duckCode")
-    .addEventListener(
-        "keydown",
-        function(event) {
-
-            if (event.key === "Enter") {
-
-                openDuck();
-
-            }
-
+document.getElementById("duckCode").addEventListener(
+    "keydown",
+    function(event) {
+        if (event.key === "Enter") {
+            openDuck();
         }
-    );
+    }
+);
   const music = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
 
